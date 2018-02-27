@@ -1,0 +1,67 @@
+group 'io.github.aedans'
+version '0.1.0'
+
+buildscript {
+    ext.kotlin_version = '1.2.21'
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'kotlin'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven-publish'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile     "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile     "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    compile     'org.ow2.asm:asm-all:5.2'
+    testCompile 'io.kotlintest:kotlintest:2.0.7'
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+publishing {
+    publications {
+        publishToBintray(MavenPublication) {
+            from components.java
+            artifact sourcesJar
+        }
+    }
+}
+
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+    publications = ['publishToBintray']
+    publish = true
+
+    pkg {
+        repo = 'maven'
+        name = 'functional-asm'
+        userOrg = user
+
+        version {
+            name = project.version
+        }
+    }
+}
