@@ -57,7 +57,7 @@ bintray {
 
     pkg {
         repo = 'maven'
-        name = 'functional-asm'
+        name = 'fasm'
         userOrg = user
 
         version {
