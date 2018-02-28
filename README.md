@@ -1,7 +1,7 @@
 functional-asm
 ==============
 
-[![Download](https://api.bintray.com/packages/aedans/maven/fasm/images/download.svg) ](https://bintray.com/aedans/maven/fasm/_latestVersion) 
+[![Download](https://api.bintray.com/packages/aedans/maven/fasm/images/download.svg)](https://bintray.com/aedans/maven/fasm/_latestVersion) 
  
 A functional wrapper for [asm](http://asm.ow2.org/) that prioritizes immutability and type safety over performance.
 

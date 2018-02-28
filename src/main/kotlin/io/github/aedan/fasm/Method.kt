@@ -8,7 +8,7 @@ import org.objectweb.asm.commons.GeneratorAdapter
  *
  * @param access     The access level of the method.
  * @param type       The type of the method.
- * @param operations The set of operations that make up the method.
+ * @param operations The list of operations that make up the method.
  */
 data class Method(
         val access: Access,
