@@ -1,4 +1,4 @@
-package io.github.aedan.fasm
+package io.github.aedans.fasm
 
 /**
  * Class representing the methodType for a method.

@@ -1,4 +1,4 @@
-package io.github.aedan.fasm
+package io.github.aedans.fasm
 
 /**
  * Represents a name of the form "java.lang.Class".
