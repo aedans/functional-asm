@@ -60,7 +60,8 @@ class MethodTest : StringSpec() {
         }
 
         "PushThis" {
-            val clazz = clazz(test.copy(operations = listOf(PushThis),
+            val clazz = clazz(test.copy(
+                    operations = listOf(PushThis, Return),
                     type = test.type.copy(
                             signature = test.type.signature.copy(
                                     returnType = Type.clazz(ClassTest.test.name)
@@ -72,7 +73,8 @@ class MethodTest : StringSpec() {
         }
 
         "PushArg" {
-            val clazz = clazz(test.copy(operations = listOf(PushArg(0)),
+            val clazz = clazz(test.copy(
+                    operations = listOf(PushArg(0), Return),
                     type = test.type.copy(
                             signature = test.type.signature.copy(
                                     returnType = Type.clazz(ClassTest.test.name),
@@ -93,7 +95,7 @@ class MethodTest : StringSpec() {
                 Type.void,
                 emptyList(),
                 emptySet(),
-                emptyList()
+                listOf(Return)
         )
     }
 }

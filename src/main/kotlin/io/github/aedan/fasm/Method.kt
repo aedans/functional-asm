@@ -38,8 +38,6 @@ data class Method(
             it.generate(generatorAdapter)
         }
 
-        Return.generate(generatorAdapter)
-
         generatorAdapter.endMethod()
     }
 
@@ -78,7 +76,8 @@ data class Method(
                 exceptions,
                 operations + listOf(
                         PushThis,
-                        InvokeConstructor(superType, superSignature)
+                        InvokeConstructor(superType, superSignature),
+                        Return
                 )
         )
     }
