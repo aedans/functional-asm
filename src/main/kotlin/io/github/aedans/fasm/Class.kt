@@ -55,10 +55,12 @@ data class Class(
     }
 
     /**
-     * Writes the bytes of this class to the given [file].
+     * Writes the bytes of this class to a file in the given [directory].
      */
-    fun generate(file: File) {
+    fun generate(directory: File): File {
+        val file = File(directory, "${name.toPathString()}.class")
         Files.write(file.toPath(), generate())
+        return file
     }
 
     /**
@@ -66,8 +68,7 @@ data class Class(
      */
     fun load(): java.lang.Class<*> {
         val directory = Files.createTempDirectory("functional_asm").toFile()
-        val file = File(directory, "${name.toQualifiedString()}.class")
-        generate(file)
+        val file = generate(directory)
         val urlClassLoader = URLClassLoader(arrayOf(directory.toURI().toURL()))
         val clazz = urlClassLoader.loadClass(name.toQualifiedString())
         file.delete()
