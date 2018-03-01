@@ -74,11 +74,21 @@ data class Method(
                 Type.void,
                 paramTypes,
                 exceptions,
-                operations + listOf(
-                        PushThis,
-                        InvokeConstructor(superType, superSignature),
-                        Return
-                )
+                operations + PushThis + InvokeConstructor(superType, superSignature) + Return
+        )
+
+        /**
+         * Creates a method that is called upon the static initialization of an object.
+         */
+        @JvmStatic
+        fun staticInit(operations: List<Operation>) = Method(
+                Access().asPublic().asStatic(),
+                "<clinit>",
+                emptyList(),
+                Type.void,
+                emptyList(),
+                emptySet(),
+                operations + Return
         )
     }
 }
