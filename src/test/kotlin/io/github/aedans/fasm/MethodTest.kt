@@ -1,6 +1,5 @@
 package io.github.aedans.fasm
 
-import io.github.aedan.fasm.*
 import io.kotlintest.matchers.*
 import io.kotlintest.specs.StringSpec
 import java.io.*
