@@ -63,6 +63,9 @@ data class Type @JvmOverloads constructor(
         val `object` = clazz(Object::class.java)
 
         @JvmField
+        val string = clazz(String::class.java)
+
+        @JvmField
         val void = Type("void", "V")
 
         @JvmField
