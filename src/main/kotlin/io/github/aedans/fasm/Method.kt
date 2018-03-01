@@ -52,7 +52,7 @@ data class Method(
                 emptyList(),
                 emptySet(),
                 Type.`object`,
-                MethodType("<init>", emptyList(), Type.void, emptyList(), emptySet()),
+                MethodSignature(emptyList(), Type.void, emptyList(), emptySet()),
                 emptyList()
         )
 
@@ -65,7 +65,7 @@ data class Method(
                 paramTypes: List<Type>,
                 exceptions: Set<Type>,
                 superType: Type,
-                superSignature: MethodType,
+                superSignature: MethodSignature,
                 operations: List<Operation>
         ) = Method(
                 access,
@@ -74,7 +74,7 @@ data class Method(
                 Type.void,
                 paramTypes,
                 exceptions,
-                operations + PushThis + InvokeConstructor(superType, superSignature) + Return
+                operations + PushThis + InvokeConstructor(superType, MethodType("<init>", superSignature)) + Return
         )
 
         /**
