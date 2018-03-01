@@ -11,5 +11,6 @@ data class PushLiteral(val literal: Any?) : Operation by when (literal) {
     is Char -> PushChar(literal)
     is Boolean -> PushBoolean(literal)
     is String -> PushString(literal)
+    is Type -> PushType(literal)
     else -> throw RuntimeException("Invalid literal $literal")
 }
