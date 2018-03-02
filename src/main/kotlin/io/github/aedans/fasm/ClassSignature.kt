@@ -20,5 +20,5 @@ data class ClassSignature(
         else -> generics.joinToString("", "<", ">") {
             "${it.name}:${it.constraints.joinToString("", "", "") { ":${it.descriptor}" }}"
         }
-    } + (interfaceTypes + superType).joinToString("", "", "") { it.signature }
+    } + superType.signature + interfaceTypes.joinToString("", "", "") { it.signature }
 }
