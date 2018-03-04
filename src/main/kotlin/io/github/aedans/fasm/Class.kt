@@ -41,7 +41,7 @@ data class Class(
                 V1_8,
                 access.intValue,
                 name.toPathString(),
-                signature.internalString(),
+                signature.internalString().let { if (it.isEmpty()) null else it },
                 signature.superType.toQualifiedName().toPathString(),
                 signature.interfaceTypes.map { it.toQualifiedName().toPathString() }.toTypedArray()
         )

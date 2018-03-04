@@ -29,7 +29,7 @@ data class Method(
         val generatorAdapter = GeneratorAdapter(
                 access.intValue,
                 type.asm,
-                type.signature.internalString(),
+                type.signature.internalString().let { if (it.isEmpty()) null else it },
                 type.signature.exceptions.map { it.asm }.toTypedArray(),
                 classWriter
         )

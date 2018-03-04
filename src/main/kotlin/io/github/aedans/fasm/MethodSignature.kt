@@ -1,7 +1,7 @@
 package io.github.aedans.fasm
 
 /**
- * Class representing the methodType for a method.
+ * Class representing the signature for a method.
  *
  * @param generics   The generic parameters of the method.
  * @param returnType The return type of the method
@@ -15,7 +15,7 @@ data class MethodSignature(
         val exceptions: Set<Type>
 ) {
     /**
-     * Returns the string representation of this method methodType on the jvm.
+     * Returns the string representation of this method on the jvm.
      */
     fun internalString() = if (generics.isEmpty())
         ""
