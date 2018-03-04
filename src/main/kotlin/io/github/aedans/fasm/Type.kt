@@ -81,7 +81,7 @@ data class Type @JvmOverloads constructor(
         val short = Type("short", "S")
 
         @JvmField
-        val int = Type("index", "I")
+        val int = Type("int", "I")
 
         @JvmField
         val long = Type("long", "J")
